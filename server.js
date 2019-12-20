@@ -3,9 +3,14 @@ const mongoose = require("mongoose");
 users = require("./routes/api/users");
 profile = require("./routes/api/profile");
 posts = require("./routes/api/posts");
+bodyParser = require("body-parser");
 
 const app = express();
 const db = require("./config/keys").mongoURI;
+
+//body parser middle ware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //connect to mongodb
 mongoose
